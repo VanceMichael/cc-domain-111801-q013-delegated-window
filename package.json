@@ -1,0 +1,19 @@
+{
+  "name": "delegated-window",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "贸易单一窗口中多主体确认范围的自动填报",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test --test-concurrency=1",
+    "demo": "node scripts/demo.mjs",
+    "start": "node scripts/start.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.56.1"
+  }
+}

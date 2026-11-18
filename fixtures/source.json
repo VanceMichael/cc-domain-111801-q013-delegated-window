@@ -1,0 +1,59 @@
+{
+  "scope": "AGENT-A",
+  "resources": {
+    "/window/agent": {
+      "body": {
+        "principal": "AGENT-A",
+        "declarations": [
+          {
+            "id": "DEC1",
+            "href": "/window/agent/records/DEC1"
+          }
+        ]
+      }
+    },
+    "/window/agent/records/DEC1": {
+      "body": {
+        "declaration": "DEC1",
+        "principal": "AGENT-A",
+        "branch": "CONTACT",
+        "contact": "合成联系人",
+        "origin": "CN",
+        "approved": true
+      }
+    },
+    "/window/agent/relations/DEC1": {
+      "body": {
+        "shared": [
+          "origin"
+        ],
+        "confirmations": [
+          {
+            "principal": "PRODUCER",
+            "fields": [
+              "origin"
+            ],
+            "revision": 1
+          }
+        ],
+        "representatives": [
+          "AGENT-A"
+        ]
+      }
+    }
+  },
+  "portal": {
+    "identity": "declaration",
+    "records": {
+      "DEC1": {
+        "declaration": "DEC1",
+        "principal": "AGENT-A",
+        "branch": "CONTACT",
+        "contact": "合成联系人",
+        "origin": "CN",
+        "approved": true
+      }
+    },
+    "version": 1
+  }
+}
