@@ -1,0 +1,147 @@
+{
+  "scope": "agent-a",
+  "representative": "agent-a",
+  "resources": {
+    "/window/joint": {
+      "body": {
+        "declarations": [
+          {
+            "id": "JDEC1",
+            "href": "/window/joint/JDEC1",
+            "relations": "/window/joint/JDEC1/relations",
+            "branches": [
+              { "branch": "B-EXPORT", "href": "/window/joint/JDEC1/B-EXPORT" },
+              { "branch": "B-FACTORY", "href": "/window/joint/JDEC1/B-FACTORY" }
+            ]
+          }
+        ]
+      }
+    },
+    "/window/joint/JDEC1/B-EXPORT": {
+      "body": {
+        "declaration": "JDEC1",
+        "branch": "B-EXPORT",
+        "subject": "EXPORTER",
+        "representative": "agent-a",
+        "contact": "张伟",
+        "contactName": "张伟",
+        "origin": "CN",
+        "goods": "标准紧固件",
+        "packageCount": "120",
+        "approved": true,
+        "revision": 1
+      }
+    },
+    "/window/joint/JDEC1/B-FACTORY": {
+      "body": {
+        "declaration": "JDEC1",
+        "branch": "B-FACTORY",
+        "subject": "PRODUCER",
+        "representative": "agent-b",
+        "contact": "张伟",
+        "contactName": "张伟",
+        "origin": "CN",
+        "goods": "铝合金组件",
+        "packageCount": "60",
+        "approved": true,
+        "revision": 1
+      }
+    },
+    "/window/joint/JDEC1/relations": {
+      "body": {
+        "declaration": "JDEC1",
+        "shared": ["origin"],
+        "subjects": [
+          {
+            "subject": "EXPORTER",
+            "representatives": ["agent-a"],
+            "editable": ["contact", "origin"]
+          },
+          {
+            "subject": "PRODUCER",
+            "representatives": ["agent-b"],
+            "editable": ["goods", "packageCount"]
+          }
+        ],
+        "confirmations": [
+          {
+            "subject": "EXPORTER",
+            "branch": "B-EXPORT",
+            "representative": "agent-a",
+            "fields": ["origin", "contact"],
+            "revision": 1
+          },
+          {
+            "subject": "PRODUCER",
+            "branch": "B-FACTORY",
+            "representative": "agent-b",
+            "fields": ["origin", "goods"],
+            "revision": 1
+          }
+        ]
+      }
+    }
+  },
+  "jointPortal": {
+    "version": 1,
+    "fieldOrder": ["origin", "goods", "packageCount", "contact"],
+    "relations": {
+      "declaration": "JDEC1",
+      "shared": ["origin"],
+      "subjects": [
+        {
+          "subject": "EXPORTER",
+          "representatives": ["agent-a"],
+          "editable": ["contact", "origin"]
+        },
+        {
+          "subject": "PRODUCER",
+          "representatives": ["agent-b"],
+          "editable": ["goods", "packageCount"]
+        }
+      ],
+      "confirmations": [
+        {
+          "subject": "EXPORTER",
+          "branch": "B-EXPORT",
+          "representative": "agent-a",
+          "fields": ["origin", "contact"],
+          "revision": 1
+        },
+        {
+          "subject": "PRODUCER",
+          "branch": "B-FACTORY",
+          "representative": "agent-b",
+          "fields": ["origin", "goods"],
+          "revision": 1
+        }
+      ]
+    },
+    "records": [
+      {
+        "declaration": "JDEC1",
+        "branch": "B-EXPORT",
+        "subject": "EXPORTER",
+        "representative": "agent-a",
+        "contact": "张伟",
+        "origin": "CN",
+        "goods": "标准紧固件",
+        "packageCount": "120",
+        "approved": true,
+        "revision": 1
+      },
+      {
+        "declaration": "JDEC1",
+        "branch": "B-FACTORY",
+        "subject": "PRODUCER",
+        "representative": "agent-b",
+        "contact": "张伟",
+        "origin": "CN",
+        "goods": "铝合金组件",
+        "packageCount": "60",
+        "approved": true,
+        "revision": 1
+      }
+    ]
+  }
+}

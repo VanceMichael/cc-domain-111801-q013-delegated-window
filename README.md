@@ -11,9 +11,10 @@ npm ci
 npm run build
 npm test
 npm run demo
+npm run joint-demo
 ```
 
-`npm run demo` 在本机启动合作源和浏览器门户，用独立临时目录完成真实领取、原文保存和领域接收，输出实际结果后清理；不要求外网资料。`npm start` 可单独启动本地来源与门户供交互查看，终端会打印实际回环地址，Ctrl-C 关闭。通过 `PORT` 指定监听端口，省略或设置为 `0` 时自动分配；仅监听回环地址。根路径返回可用资源目录与运行状态。
+`npm run demo` 在本机启动合作源和浏览器门户，用独立临时目录完成真实领取、原文保存和领域接收，输出实际结果后清理；不要求外网资料。`npm run joint-demo` 演示联合申报协作填报：当前账号只办理自己有权编辑的分支，共享字段更正使他方确认失效时登记待其重新确认、无关分支继续办理，并输出恢复办理用的交接视图。`npm start` 可单独启动本地来源与门户供交互查看，终端会打印实际回环地址，Ctrl-C 关闭。通过 `PORT` 指定监听端口，省略或设置为 `0` 时自动分配；仅监听回环地址。根路径返回可用资源目录与运行状态。
 
 ## 容器
 
@@ -26,4 +27,4 @@ docker run --rm --network none delegated-window:local
 
 ## 代码与来源约定
 
-`src/source.mjs` 负责来源目录与原文身份，`src/interpret.mjs` 解释当前领域记录，`src/receiving.mjs` 决定选定范围内的收件结果。`src/archive.mjs` 提供原文保管及收据落库，`src/app.mjs` 连接日常业务，`fixtures/` 与 `src/fixture-source.mjs` 提供可独立复查的本地合作源。`src/portal.mjs` 和 `src/operator.mjs` 提供合作门户与可见操作。详细字段与来源声明见 `docs/source-contract.md`。
+`src/source.mjs` 负责来源目录与原文身份，`src/interpret.mjs` 解释当前领域记录，`src/receiving.mjs` 决定选定范围内的收件结果。`src/archive.mjs` 提供原文保管及收据落库，`src/app.mjs` 连接日常业务，`fixtures/` 与 `src/fixture-source.mjs` 提供可独立复查的本地合作源。`src/portal.mjs` 和 `src/operator.mjs` 提供合作门户与可见操作。联合申报协作填报由 `src/joint.mjs`（确认效力与分支评估规则）、`src/joint-operator.mjs`（可见界面操作与回读）、`collectJoint`/`handover` 编排，配合 `fixtures/joint.json` 与 `jointPortalServer` 使用。详细字段与来源声明见 `docs/source-contract.md`。

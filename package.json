@@ -11,6 +11,7 @@
     "build": "node scripts/build.mjs",
     "test": "node --test --test-concurrency=1",
     "demo": "node scripts/demo.mjs",
+    "joint-demo": "node scripts/joint-demo.mjs",
     "start": "node scripts/start.mjs"
   },
   "dependencies": {
